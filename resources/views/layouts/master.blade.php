@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
+    <a class="navbar-brand">Crud</a>
   </div>
 </nav>
 <div class="container">

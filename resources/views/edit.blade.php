@@ -28,28 +28,34 @@
       <form action="" method="post" enctype="multipart/form-data">
         @csrf
       <div class="form-group">
+        <div>
+        <img src="{{asset($post->image)}}" alt="" width="200">
+      </div>
         <label for="" class="form-label">Image</label>
         <input type="file" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="" class="form-label">Title</label>
+        <input type="text" placeholder="Category" class="form-control" value="{{$post->title}}">
+      </div>
+
+      <div class="form-group">
+        <label for="" class="form-label">Category</label>
        <select name="" id="" class="form-control">
-        <option value="">1</option>
-        <option value="">2</option>
-        <option value="">3</option>
+        <option value=""></option>
+@foreach ($categories as $category )
+<option {{$category->id == $post->category_id ? 'selected' : ''}} value="{{$category->id}}">{{$category->name}}</option>
+@endforeach
        </select>
       </div>
 
       <div class="form-group">
         <label for="" class="form-label">Description</label>
-  <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+  <textarea name="description" id="" cols="30" rows="10" class="form-control">{{$post->description}}</textarea>
       </div>
 
-      <div class="form-group">
-        <label for="" class="form-label">Category</label>
-        <input type="text" placeholder="Category" class="form-control">
-      </div>
+     
 
       <div class="form-group mt-5">
         <button class="btn btn-primary">Update</button>

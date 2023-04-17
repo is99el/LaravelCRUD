@@ -10,6 +10,11 @@
   @extends("layouts.master")
   @section('content')
   <div class="main-content mt-5">
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+      <div class="alert alert-danger">{{$error}}</div>
+    @endforeach
+   @endif
   <div class="card">
     <div class="card-header">
 <div class="row">
@@ -24,6 +29,7 @@
     </div>
   </div>
 
+
     <div class="card-body">
       <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -34,16 +40,18 @@
 
       <div class="form-group">
         <label for="" class="form-label">Title</label>
-        <input type="text" placeholder="Category" class="form-control" name="title">
+        <input type="text" placeholder="Title" class="form-control" name="title">
        </select>
       </div>
 
       <div class="form-group">
         <label for="" class="form-label">Category</label>
-        <select name="" id="" class="form-control" name="category_id">
-         <option value="">1</option>
-         <option value="">2</option>
-         <option value="">3</option>
+        <select id="" class="form-control" name="category_id">
+          <option value="">Select</option>
+          @foreach ( $categories as $category)
+          <option value="{{$category->id}}">{{$category->name}}</option>
+          @endforeach
+         
       </div>
 
       <div class="form-group">

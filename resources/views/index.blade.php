@@ -38,23 +38,25 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
+          @foreach ($posts as $post )
+             <tr>
+            <th scope="row">{{$post->id}}</th>
             <td>
-              <img src="" alt="" width="80">
+              <img src="{{asset($post->image)}}" alt="" width="80">
             </td>
-            <td>Title</td>
-            <td>Description</td>
-            <td>Category</td>
-            <td>Publish Date</td>
+            <td>{{$post->title}}</td>
+            <td>{{$post->description}}</td>
+            <td>{{$post->category_id}}</td>
+            <td>{{date('d-m-Y',strtotime($post->created_at))}}</td>
             <td>
               <a class="btn-sm btn-success" href="">Show</a>
-              <a class="btn-sm btn-primary" href="">Edit</a>
+              <a class="btn-sm btn-primary" href="{{route('posts.edit',$post->id)}}">Edit</a>
               <a class="btn-sm btn-danger"href=" ">Delete</a>
             </td>
           </tr>
           <tr>
           </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
