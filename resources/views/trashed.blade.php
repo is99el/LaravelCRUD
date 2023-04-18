@@ -19,7 +19,7 @@
   </div>
       <div class="col-md-6 d-flex justify-content-end">
       <a href="{{route('posts.index')}}"class="btn btn-success mx-1" >Home</a>
- 
+
     </div>
     </div>
   </div>
@@ -38,25 +38,35 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
+          @foreach ($posts as $post )
+             <tr>
+            <th scope="row">{{$post->id}}</th>
             <td>
-              <img src="" alt="" width="80">
+              <img src="{{asset($post->image)}}" alt="" width="80">
             </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{$post->title}}</td>
+            <td>{{$post->description}}</td>
+            <td>{{$post->category->name}}</td>
+            <td>{{date('d-m-Y',strtotime($post->created_at))}}</td>
             <td>
-              <a class="btn-sm btn-success" href="">Show</a>
-              <a class="btn-sm btn-primary" href="">Edit</a>
-              <a class="btn-sm btn-danger"href=" ">Delete</a>
+              
+              <div class="d-flex">
+              <a class="btn-sm btn-success btn text-decoration-none" href="{{route('posts.restore',$post->id)}}">Restore</a>
+              
+              <form action="{{route('posts.delete',$post->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+              <button class="btn-sm btn-danger btn text-decoration-none">Delete</button>
+            </form>
+          </div>
             </td>
           </tr>
-          <tr>
-          </tr>
+         
+         
+          @endforeach
         </tbody>
       </table>
+      
     </div>
   </div>
 </div>

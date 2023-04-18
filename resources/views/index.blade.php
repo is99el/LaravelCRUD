@@ -19,7 +19,7 @@
   </div>
       <div class="col-md-6 d-flex justify-content-end">
       <a href="{{route('posts.create')}}"class="btn btn-success mx-1" >Create</a>
-      <a href="" class="btn btn-warning mx-1">Trashed</a>
+      <a href="{{route('posts.trashed')}}" class="btn btn-warning mx-1">Trashed</a>
     </div>
     </div>
   </div>
@@ -46,19 +46,25 @@
             </td>
             <td>{{$post->title}}</td>
             <td>{{$post->description}}</td>
-            <td>{{$post->category_id}}</td>
+            <td>{{$post->category->name}}</td>
             <td>{{date('d-m-Y',strtotime($post->created_at))}}</td>
             <td>
-              <a class="btn-sm btn-success" href="">Show</a>
-              <a class="btn-sm btn-primary" href="{{route('posts.edit',$post->id)}}">Edit</a>
-              <a class="btn-sm btn-danger"href=" ">Delete</a>
+              <a class="btn-sm btn-success text-decoration-none" href="{{route('posts.show',$post->id)}}">Show</a><br>
+              <a class="btn-sm btn-primary text-decoration-none" href="{{route('posts.edit',$post->id)}}">Edit</a>
+
+              <form action="{{route('posts.destroy',$post->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+              <button class="btn-sm btn-danger btn text-decoration-none">Delete</button>
+            </form>
             </td>
           </tr>
-          <tr>
-          </tr>
+         
+         
           @endforeach
         </tbody>
       </table>
+      {{$posts->links()}}
     </div>
   </div>
 </div>
