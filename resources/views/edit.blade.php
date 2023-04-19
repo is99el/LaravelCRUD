@@ -20,7 +20,7 @@
 <div class="row">
 
   <div class="col-md-6">
-      <h4>Edit Posts</h4>
+      <h4>Edit Post</h4>
   </div>
       <div class="col-md-6 d-flex justify-content-end">
       <a href="{{route('posts.index')}}"class="btn btn-success mx-1" >Home</a>
@@ -37,17 +37,17 @@
         <div>
         <img src="{{asset($post->image)}}" alt="" width="200">
       </div>
-        <label for="" class="form-label">Image</label>
+        <label for="" class="form-label">Foto</label>
         <input name="image"type="file" class="form-control">
       </div>
 
       <div class="form-group">
-        <label for="" class="form-label">Title</label>
+        <label for="" class="form-label">Titel</label>
         <input name="title" type="text" placeholder="Category" class="form-control" value="{{$post->title}}">
       </div>
 
       <div class="form-group">
-        <label for="" class="form-label">Category</label>
+        <label for="" class="form-label">Categorie</label>
        <select name="category_id" id="" class="form-control">
         <option value=""></option>
 @foreach ($categories as $category )
@@ -57,7 +57,7 @@
       </div>
 
       <div class="form-group">
-        <label for="" class="form-label">Description</label>
+        <label for="" class="form-label">Beschrijving</label>
   <textarea name="description" id="" cols="30" rows="10" class="form-control">{{$post->description}}</textarea>
       </div>
      

@@ -29,12 +29,12 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col" style="width: 10%">Image</th>
-            <th scope="col" style="width: 20%">Title</th>
-            <th scope="col" style="width: 30%">Description</th>
-            <th scope="col" style="width: 10%">Category</th>
-            <th scope="col" style="width: 10%">Publish Date</th>
-            <th scope="col" style="width: 20%">Action</th>
+            <th scope="col" style="width: 10%">Foto</th>
+            <th scope="col" style="width: 20%">Titel</th>
+            <th scope="col" style="width: 30%">Beschrijving</th>
+            <th scope="col" style="width: 10%">Categorie</th>
+            <th scope="col" style="width: 10%">Datum</th>
+            <th scope="col" style="width: 20%">Opties</th>
           </tr>
         </thead>
         <tbody>

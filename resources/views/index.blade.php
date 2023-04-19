@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Posts</title>
 </head>
 <body>
   @extends("layouts.master")
@@ -15,7 +15,7 @@
 <div class="row">
 
   <div class="col-md-6">
-      <h4>All Posts</h4>
+      <h4>Posts</h4>
   </div>
       <div class="col-md-6 d-flex justify-content-end">
       <a href="{{route('posts.create')}}"class="btn btn-success mx-1" >Create</a>
@@ -29,12 +29,12 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col" style="width: 10%">Image</th>
-            <th scope="col" style="width: 20%">Title</th>
-            <th scope="col" style="width: 30%">Description</th>
-            <th scope="col" style="width: 10%">Category</th>
-            <th scope="col" style="width: 10%">Publish Date</th>
-            <th scope="col" style="width: 20%">Action</th>
+            <th scope="col" style="width: 10%">Foto</th>
+            <th scope="col" style="width: 20%">Titel</th>
+            <th scope="col" style="width: 30%">Beschrijving</th>
+            <th scope="col" style="width: 10%">Categorie</th>
+            <th scope="col" style="width: 10%">Datum</th>
+            <th scope="col" style="width: 20%">Opties</th>
           </tr>
         </thead>
         <tbody>
@@ -55,7 +55,7 @@
               <form action="{{route('posts.destroy',$post->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-              <button class="btn-sm btn-danger btn text-decoration-none">Delete</button>
+              <button class="btn-sm btn-danger btn text-decoration-none">Verwijderen</button>
             </form>
             </td>
           </tr>

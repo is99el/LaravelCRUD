@@ -15,7 +15,7 @@
 <div class="row">
 
   <div class="col-md-6">
-      <h4>Show Post</h4>
+      <h4>Post</h4>
   </div>
       <div class="col-md-6 d-flex justify-content-end">
       <a href="{{route('posts.index')}}"class="btn btn-success mx-1" >Home</a>
@@ -32,23 +32,23 @@
             <td>{{$post->id}}</td>
            </tr>
 
-           <td>Image</td>
+           <td>Foto</td>
            <td><img width="300px" src="{{{asset($post->image)}}}" alt=""></td>
           </tr>
 
-           <td>Title</td>
+           <td>Titel</td>
            <td>{{$post->title}}</td>
           </tr>
 
-          <td>Category</td>
-          <td>{{$post->category_id}}</td>
+          <td>Categorie</td>
+          <td>{{$post->category->name}}</td>
          </tr>
 
-         <td>Description</td>
+         <td>Beschrijving</td>
          <td>{{$post->description}}</td>
         </tr>
 
-        <td>Publish Date</td>
+        <td>Datum</td>
         <td>{{date('d-m-Y',strtotime($post->created_at))}}</td>
        </tr>
         </tbody>
